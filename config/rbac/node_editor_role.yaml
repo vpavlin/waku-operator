@@ -1,0 +1,31 @@
+# permissions for end users to edit nodes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: node-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: waku-operator
+    app.kubernetes.io/part-of: waku-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: node-editor-role
+rules:
+- apiGroups:
+  - waku.vac.dev
+  resources:
+  - nodes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - waku.vac.dev
+  resources:
+  - nodes/status
+  verbs:
+  - get

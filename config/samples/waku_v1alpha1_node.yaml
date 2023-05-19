@@ -1,0 +1,16 @@
+apiVersion: waku.vac.dev/v1alpha1
+kind: Node
+metadata:
+  labels:
+    app.kubernetes.io/name: node
+    app.kubernetes.io/instance: node-sample
+    app.kubernetes.io/part-of: waku-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: waku-operator
+  name: node-sample
+spec:
+  image: docker.io/statusteam/nim-waku:v0.17.0
+  metrics: true
+  protocols:
+    - relay
+    - lightpush
